@@ -17,4 +17,21 @@ export class PrismaService extends PrismaClient {
   cleanDb() {
     return this.$transaction([this.user.deleteMany(), this.user.deleteMany()]);
   }
+  // cleanDb() {
+  //   return this.$transaction(async (prisma) => {
+  //     // 1. Find and delete all bookmarks
+  //     const bookmarksToDelete = await prisma.bookmark.findMany();
+
+  //     for (const bookmark of bookmarksToDelete) {
+  //       await prisma.bookmark.delete({
+  //         where: {
+  //           id: bookmark.id,
+  //         },
+  //       });
+  //     }
+
+  //     // 2. Delete all users
+  //     await prisma.user.deleteMany();
+  //   });
+  // }
 }
